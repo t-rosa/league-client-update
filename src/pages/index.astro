@@ -13,11 +13,12 @@ import rp from '@/assets/rp.webp';
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=Beaufort+for+LOL+Bold" rel="stylesheet">
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
-  <body class="h-full bg-league-background overflow-hidden text-lol-white">
+  <body class="h-full bg-league-background overflow-hidden text-white">
     <div class="absolute inset-0 intro-wrapper">
       <div class="intro bg-riot-red h-full flex justify-center items-center">
         <Image src={riot} alt="riot games logo" class="riot-logo opacity-0"/>
@@ -34,42 +35,40 @@ import rp from '@/assets/rp.webp';
     <main class="h-full flex gap-12">
       <aside class="menu h-full w-32 bg-blue-500 border-r-2 border-hextech-metal">
       </aside>
-      <div class="self-end flex flex-col">
-        <div class="flex gap-6 champ-card">
-          <div class="relative w-56 h-80 border-2 border-hextech-metal z-20 flex justify-end items-end">
-            <div class="absolute flex items-center">
-              <Image class="h-5 w-5" src={rp} alt="rp"/>
+      <div class="self-end flex flex-col gap-2 pb-2">
+        <div class="flex gap-6 champ-card-wrapper">
+          <div class="flex flex-col">
+            <div class="w-52 h-72 border-2 border-hextech-metal z-20 flex justify-end items-end hover:cursor-pointer hover:scale-[1.03] duration-[300ms]">
+              <div class="absolute flex items-center">
+                <Image class="h-5 w-5" src={rp} alt="rp"/>
                 <p class=" text-xl font-semibold p-2">750</p>
+              </div>
+              <Image src={champ2} class="w-52 h-[284px] object-cover" alt="xerath">
             </div>
-            <Image src={champ1} class="w-56 h-[316px] object-cover" alt="xerath">
-          </div>
-          <div class="w-56 h-80 border-2 border-hextech-metal z-20 flex justify-end items-end">
-            <div class="absolute flex items-center">
-              <Image class="h-5 w-5" src={rp} alt="rp"/>
-                <p class=" text-xl font-semibold p-2">750</p>
+            <div class="w-52">
+              <p class="text-lg">Shan Hai Scrolls Nautilus</p>
             </div>
-            <Image src={champ2} class="w-56 h-[316px] object-cover" alt="xerath">
-          </div>
-          <div class="w-56 h-80 border-2 border-hextech-metal z-20 flex justify-end items-end">
-            <div class="absolute flex items-center">
-              <Image class="h-5 w-5" src={rp} alt="rp"/>
-                <p class=" text-xl font-semibold p-2">750</p>
-            </div>
-            <Image src={champ3} class="w-56 h-[316px] object-cover" alt="xerath">
+            <div class="w-12 h-1 bg-[#C8AA6E]"/>
           </div>
         </div>
-        <div>
+        <div class=" overflow-hidden w-fit">
+          <div class="featured-section">
+          <p class="uppercase font-semibold text-2xl text-[#C8AA6E]">featured skin line</p>
+          <p class="uppercase font-semibold text-3xl">Mythmaker Irelia</p>
+          </div>
         </div>
-        <div>
+      </div>
     </main>
   </body>
 </html>
 
 <style>
+body {
+  font-family: "Beaufort for LOL Bold";
+}
 :root {
   --duration: 0.5;
 }
-
 
 @keyframes scale-up {
 0% {
@@ -135,39 +134,44 @@ import rp from '@/assets/rp.webp';
 
 
 @keyframes slide-up {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+from {
+  transform: translateY(135%);
+}
+to {
+  transform: translateY(0);
+}
 }
 
-.champ-card >:nth-child(1) {
-  transform: translateY(100%);
+.champ-card-wrapper > :nth-child(1) {
+  transform: translateY(135%);
   animation: slide-up .3s ease-in-out 3.4s both;
 }
 
-.champ-card >:nth-child(2) {
+.champ-card-wrapper > :nth-child(2) {
   transform: translateY(100%);
   animation: slide-up .3s ease-in-out 3.6s both;
 }
-.champ-card > :nth-child(3) {
+.champ-card-wrapper > :nth-child(3) {
   transform: translateY(100%);
   animation: slide-up .3s ease-in-out 3.8s both;
 }
 
 @keyframes slide-right {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0%);
-  }
+from {
+  transform: translateX(-100%);
+}
+to {
+  transform: translateX(0%);
+}
 }
 
 .menu {
   transform: translateX(-100%);
   animation: slide-right .3s ease-in-out 3.8s both;
+}
+
+.featured-section {
+  transform: translateX(-100%);
+  animation: slide-right .4s ease-in-out 4s both;
 }
 </style>
