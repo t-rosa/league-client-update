@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import riot from '@/assets/riot.png';
+import lol from '@/assets/lol.png';
+import bg from '@/assets/bg.mp4';
 ---
 
 <html lang="en" class="h-full">
@@ -11,12 +13,21 @@ import riot from '@/assets/riot.png';
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body class="h-full bg-zinc-900">
-    <div class="intro-wrapper h-full">
-      <div class="intro bg-riot-red h-full flex justify-center items-center">
-        <Image src={riot} alt="riot games logo" class="riot-logo opacity-0"/>
+	<body class="h-full relative bg-league-background">
+    <div class="relative h-full flex justify-center items-center">
+      <div class="absolute w-full intro-wrapper h-full">
+        <div class="intro bg-riot-red h-full flex justify-center items-center">
+          <Image src={riot} alt="riot games logo" class="riot-logo opacity-0"/>
+        </div>
       </div>
+      <div class="lol-logo-wrapper">
+          <Image src={lol} alt="league of legends logo" class="lol-logo opacity-0"/>
+      </div>
+      <video id="background-video" class="lol-bg absolute inset-0 w-full h-full object-cover -z-10 opacity-0" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+        <source src={bg} type="video/mp4">
+      </video>
     </div>
+
 	</body>
 </html>
 
@@ -33,6 +44,19 @@ import riot from '@/assets/riot.png';
 .riot-logo {
   animation: fade-in .5s ease-in-out .5s forwards;
 }
+
+.lol-logo {
+  animation: fade-in .5s ease-in-out 1.7s forwards;
+}
+
+.lol-logo-wrapper {
+  animation: fade-out .8s ease-in-out 2.5s forwards;
+}
+
+.lol-bg {
+  animation: fade-in 3s ease-in-out 2.5s forwards;
+}
+
 
 @keyframes scale-up {
   0% {

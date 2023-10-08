@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         "riot-red": "#eb0029",
         "riot-white": "#f0f5f1",
+        "league-background": "#161e24",
       },
     },
   },
