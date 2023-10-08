@@ -7,6 +7,7 @@ import champ1 from '@/assets/champ-1.jpg';
 import champ2 from '@/assets/champ-2.jpg';
 import champ3 from '@/assets/champ-3.jpg';
 import rp from '@/assets/rp.webp';
+import eb from '@/assets/eb.png';
 ---
 
 <html lang="en" class="h-full">
@@ -32,10 +33,49 @@ import rp from '@/assets/rp.webp';
         <source src={bg} type="video/mp4">
       </video>
     </div>
-    <main class="h-full flex gap-12">
-      <aside class="menu h-full w-32 bg-blue-500 border-r-2 border-hextech-metal">
+    <main class="h-full w-full justify-between flex gap-12">
+      <aside class="menu justify-between flex flex-col h-full w-32 border-r-2 border-hextech-metal bg-gradient-to-b from-[#091428] to-[#0A1428]">
+        <div>
+          <div>Menu</div>
+          <div>Menu</div>
+          <div>Menu</div>
+          <div>Menu</div>
+        </div>
+        <div class="flex justify-center items-center">
+          <p>PLAY</p>
+        </div>
+        <div class="flex flex-col">
+          <div class="bg-[#020810]">
+            <div class="flex gap-2 flex-col self-center items-center p-4 ">
+              <Image class="h-10 w-10 pointer-events-none" src={eb} alt="eb"/>
+              <p>6850</p>
+            </div>
+            <div class="flex gap-2 flex-col self-center items-center p-4">
+              <Image class="h-6 w-6 pointer-events-none" src={rp} alt="rp"/>
+              <p>7850</p>
+            </div>
+          </div>
+          <div class="border-t-2 border-hextech-metal bg-[#161c21] flex justify-center items-center p-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor">
+              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg> 
+          </div>
+        </div>
       </aside>
-      <div class="self-end flex flex-col gap-2 pb-2">
+      <div class="p-6">
+        <div class="flex items-center">
+          <div class="w-64 h-14 overflow-hidden translate-x-8">
+            <div class="flex justify-center items-center flex-col summoner-name w-full h-full bg-league-background/50 rounded-l-xl">
+              <p class="text-xl font-semibold uppercase">Koralior</p>
+            </div>
+          </div>
+          <div class="summoner-avatar bg-blue-500 rounded-full w-20 h-20 border-4 border-hextech-metal overflow-hidden relative">
+            <Image src={champ1} class="pointer-events-none absolute object-cover" alt="xerath">
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-40 flex flex-col gap-2 pb-2">
         <div class="flex gap-6 champ-card-wrapper">
           <div class="flex flex-col">
             <div class="w-52 h-72 border-2 border-hextech-metal z-20 flex justify-end items-end hover:cursor-pointer hover:scale-[1.03] duration-[300ms]">
@@ -79,8 +119,8 @@ import rp from '@/assets/rp.webp';
         </div>
         <div class=" overflow-hidden w-fit">
           <div class="featured-section">
-          <p class="uppercase font-semibold text-2xl text-[#C8AA6E]">featured skin line</p>
-          <p class="uppercase font-semibold text-3xl">Mythmaker Irelia</p>
+            <p class="uppercase font-semibold text-2xl text-[#C8AA6E]">featured skin line</p>
+            <p class="uppercase font-semibold text-3xl">Mythmaker Irelia</p>
           </div>
         </div>
       </div>
@@ -200,4 +240,33 @@ to {
   transform: translateX(-100%);
   animation: slide-right .4s ease-in-out 4s both;
 }
+
+@keyframes slide-left-avatar {
+from {
+  opacity: 0;
+  transform: translateX(130%);
+}
+to {
+  opacity: 100;
+  transform: translateX(0%);
+}
+}
+.summoner-avatar {
+  animation: slide-left-avatar .4s ease-in-out 4s both;
+}
+
+@keyframes slide-left-name {
+from {
+  opacity: 0;
+  transform: translateX(130%);
+}
+to {
+  opacity: 100;
+  transform: translateX(2rem);
+}
+}
+.summoner-name {
+  animation: slide-left-name .5s ease-in-out 4.4s both;
+}
+
 </style>
