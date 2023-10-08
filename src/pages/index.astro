@@ -3,93 +3,171 @@ import { Image } from 'astro:assets';
 import riot from '@/assets/riot.png';
 import lol from '@/assets/lol.png';
 import bg from '@/assets/bg.mp4';
+import champ1 from '@/assets/champ-1.jpg';
+import champ2 from '@/assets/champ-2.jpg';
+import champ3 from '@/assets/champ-3.jpg';
+import rp from '@/assets/rp.webp';
 ---
 
 <html lang="en" class="h-full">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body class="h-full bg-league-background overflow-hidden">
-      <div class="absolute inset-0 intro-wrapper">
-        <div class="intro bg-riot-red h-full flex justify-center items-center">
-          <Image src={riot} alt="riot games logo" class="riot-logo opacity-0"/>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body class="h-full bg-league-background overflow-hidden text-lol-white">
+    <div class="absolute inset-0 intro-wrapper">
+      <div class="intro bg-riot-red h-full flex justify-center items-center">
+        <Image src={riot} alt="riot games logo" class="riot-logo opacity-0"/>
+      </div>
+    </div>
+    <div class="absolute lol-logo-wrapper inset-0 flex justify-center items-center">
+      <Image src={lol} alt="league of legends logo" class="lol-logo opacity-0"/>
+    </div>
+    <div class="absolute lol-bg-wrapper -z-10">
+      <video id="background-video" class="lol-bg object-cover -z-10 opacity-0" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+        <source src={bg} type="video/mp4">
+      </video>
+    </div>
+    <main class="h-full flex gap-12">
+      <aside class="menu h-full w-32 bg-blue-500 border-r-2 border-hextech-metal">
+      </aside>
+      <div class="self-end flex flex-col">
+        <div class="flex gap-6 champ-card">
+          <div class="relative w-56 h-80 border-2 border-hextech-metal z-20 flex justify-end items-end">
+            <div class="absolute flex items-center">
+              <Image class="h-5 w-5" src={rp} alt="rp"/>
+                <p class=" text-xl font-semibold p-2">750</p>
+            </div>
+            <Image src={champ1} class="w-56 h-[316px] object-cover" alt="xerath">
+          </div>
+          <div class="w-56 h-80 border-2 border-hextech-metal z-20 flex justify-end items-end">
+            <div class="absolute flex items-center">
+              <Image class="h-5 w-5" src={rp} alt="rp"/>
+                <p class=" text-xl font-semibold p-2">750</p>
+            </div>
+            <Image src={champ2} class="w-56 h-[316px] object-cover" alt="xerath">
+          </div>
+          <div class="w-56 h-80 border-2 border-hextech-metal z-20 flex justify-end items-end">
+            <div class="absolute flex items-center">
+              <Image class="h-5 w-5" src={rp} alt="rp"/>
+                <p class=" text-xl font-semibold p-2">750</p>
+            </div>
+            <Image src={champ3} class="w-56 h-[316px] object-cover" alt="xerath">
+          </div>
         </div>
-      </div>
-      <div class="absolute lol-logo-wrapper inset-0 flex justify-center items-center">
-          <Image src={lol} alt="league of legends logo" class="lol-logo opacity-0"/>
-      </div>
-    <div class="absolute lol-bg-wrapper">
-        <video id="background-video" class="lol-bg object-cover -z-10 opacity-0" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
-          <source src={bg} type="video/mp4">
-        </video>
-      </div>
-	</body>
+        <div>
+        </div>
+        <div>
+    </main>
+  </body>
 </html>
 
 <style>
+:root {
+  --duration: 0.5;
+}
+
 
 @keyframes scale-up {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-   transform: scale(1);
-  }
+0% {
+  transform: scale(0);
+}
+100% {
+  transform: scale(1);
+}
 }
 .intro {
-  animation: scale-up .6s ease-in-out forwards;
+  animation: scale-up .6s ease-in-out both;
 }
 
 @keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+0% {
+  opacity: 1;
+}
+100% {
+  opacity: 0;
+}
 }
 .intro-wrapper {
-  animation: fade-out .8s ease-in-out 1s forwards;
+  animation: fade-out .8s ease-in-out 1s both;
 }
 
 @keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 100;
-  }
+0% {
+  opacity: 0;
+}
+100% {
+  opacity: 100;
+}
 }
 .riot-logo {
-  animation: fade-in .5s ease-in-out .5s forwards;
+  animation: fade-in .5s ease-in-out .5s both;
 }
 
 .lol-logo {
-  animation: fade-in .5s ease-in-out 1.7s forwards;
+  animation: fade-in .5s ease-in-out 1.7s both;
 }
 
 .lol-logo-wrapper {
-  animation: fade-out .8s ease-in-out 2.5s forwards;
+  animation: fade-out .8s ease-in-out 2.5s both;
 }
 
 .lol-bg {
-  animation: fade-in 3s ease-in-out 2.5s forwards;
+  animation: fade-in 3s ease-in-out 2.5s both;
 }
 
 @keyframes scale-down {
-  0% {
-    transform: scale(1. 5);
+0% {
+  transform: scale(2.5);
+}
+100% {
+  transform: scale(1);
+}
+}
+
+.lol-bg-wrapper {
+  transform: scale(2.5);
+  animation: scale-down 1s ease-in-out 2.8s both;
+}
+
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
   }
-  100% {
-    transform: scale(1);
+  to {
+    transform: translateY(0);
   }
 }
-.lol-bg-wrapper {
-  transform: scale(1.5);
-  animation: scale-down .8s ease-in-out 4s forwards;
+
+.champ-card >:nth-child(1) {
+  transform: translateY(100%);
+  animation: slide-up .3s ease-in-out 3.4s both;
+}
+
+.champ-card >:nth-child(2) {
+  transform: translateY(100%);
+  animation: slide-up .3s ease-in-out 3.6s both;
+}
+.champ-card > :nth-child(3) {
+  transform: translateY(100%);
+  animation: slide-up .3s ease-in-out 3.8s both;
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.menu {
+  transform: translateX(-100%);
+  animation: slide-right .3s ease-in-out 3.8s both;
 }
 </style>
