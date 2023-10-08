@@ -1,8 +1,9 @@
 ---
-
+import { Image } from 'astro:assets';
+import riot from '@/assets/riot.png';
 ---
 
-<html lang="en">
+<html lang="en" class="h-full">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -10,7 +11,53 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="h-full bg-zinc-900">
+    <div class="intro-wrapper h-full">
+      <div class="intro bg-riot-red h-full flex justify-center items-center">
+        <Image src={riot} alt="riot games logo" class="riot-logo opacity-0"/>
+      </div>
+    </div>
 	</body>
 </html>
+
+<style>
+
+.intro {
+  animation: scale-up .6s ease-in-out forwards;
+}
+
+.intro-wrapper {
+  animation: fade-out .8s ease-in-out 1s forwards;
+}
+
+.riot-logo {
+  animation: fade-in .5s ease-in-out .5s forwards;
+}
+
+@keyframes scale-up {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+</style>
